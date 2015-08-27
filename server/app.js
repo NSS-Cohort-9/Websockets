@@ -19,4 +19,11 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function () {
     console.log('Client disconnected:', socket.id);
   });
+
+  socket.on('sentChatMessage', function (msg) {
+    // socket.emit('chatMessageToOne', msg);
+    // socket.broadcast.emit('chatMessageToOthers', msg);
+    // io.emit('chatMessageToAll', msg});
+    io.emit('recievedChatMessage', msg);
+  });
 });
